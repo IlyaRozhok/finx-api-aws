@@ -10,6 +10,10 @@
 !.yarn/releases
 !.yarn/versions
 
+.DS_Store
+
+.
+
 # testing
 /coverage
 
@@ -49,7 +53,6 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # Package manager lock files (keep only one)
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
