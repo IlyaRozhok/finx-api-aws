@@ -23,9 +23,9 @@ export class CsrfInterceptor implements NestInterceptor {
     const tokenHeader = req.header("x-csrf-token");
     const tokenCookie = req.cookies?.["csrf"];
 
-    // if (!tokenHeader || !tokenCookie || tokenHeader !== tokenCookie) {
-    //   throw new ForbiddenException("Bad CSRF token");
-    // }
+    if (!tokenHeader || !tokenCookie || tokenHeader !== tokenCookie) {
+      throw new ForbiddenException("Bad CSRF token");
+    }
     return next.handle();
   }
 }

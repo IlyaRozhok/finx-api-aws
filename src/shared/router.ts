@@ -1,4 +1,4 @@
-import { CATCH_WATERMARK } from "@nestjs/common/constants";
+
 
 export const ROUTE_SEGMENTS = {
   AUTH: "auth",
@@ -8,6 +8,10 @@ export const ROUTE_SEGMENTS = {
   DEBTS: "debts",
   INSTALLMENTS: "installments",
   INCOMES: "incomes",
+  ACCOUNTS: "accounts",
+  TRANSACTIONS: "transactions",
+  MONOBANK: "monobank",
+  INTEGRATION: "integration",
 };
 
 export const ENDPOINTS = {
@@ -39,5 +43,26 @@ export const ENDPOINTS = {
     GET: "event",
     BY_ID: "event/:id",
     CREATE: "event/create",
+  },
+  ACCOUNTS: {
+    CREATE: "create",
+    FIND_INE: "/:id"
+  },
+  TRANSACTIONS: {
+    MONTHLY_EXPENSES: "monthly-expenses",
+  },
+  INTEGRATIONS: {
+    FIND_ALL: "find",
+    MONOBANK: {
+      CLIENT_INFO: "monobank/client-info",
+      STATEMENT: "statement",
+      CONNECT: "monobank/connect",
+    },
+  },
+  EXTERNAL: {
+    MONOBANK: {
+      CLIENT_INFO: "https://api.monobank.ua/personal/client-info",
+      STATEMENT: "https://api.monobank.ua/personal/statement/",
+    },
   },
 };
