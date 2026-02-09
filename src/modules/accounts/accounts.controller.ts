@@ -3,7 +3,6 @@ import { AccountsService } from "./accounts.service";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { ENDPOINTS, ROUTE_SEGMENTS } from "@/shared/router";
 import {
-  AccountBalanceDto,
   AccountsResDto,
   CreateAccountDto, SyncMonobankAccountDto,
 } from "@/modules/accounts/dto";
@@ -21,7 +20,7 @@ export class AccountsController {
     type: AccountsResDto,
     description: "Accounts fetched",
   })
-  @Post(ENDPOINTS.ACCOUNTS.FIND_INE)
+  @Post(ENDPOINTS.ACCOUNTS.FIND_ONE)
   async findOneAccount(@Req() req, @Query("id") id: string) {
     return await this.accountsService.findById(id);
   }
@@ -33,7 +32,8 @@ export class AccountsController {
     description: "Account created",
   })
   @Post(ENDPOINTS.ACCOUNTS.CREATE)
-  async createAccount(@Req() req, @Body() dto: CreateAccountDto) {
+  async createAccount(@Req() req, @Body() dto: any) {
+    console.log("post");
     const userId = req.user.sub;
     return await this.accountsService.create(dto, userId);
   }
@@ -46,6 +46,7 @@ export class AccountsController {
   })
   @Get()
   async fetchAccounts(@Req() req) {
+    console.log("get");
     const userId = req.user.sub;
     return await this.accountsService.findAll(userId);
   }

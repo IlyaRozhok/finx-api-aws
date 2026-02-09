@@ -45,8 +45,8 @@ export const ENDPOINTS = {
     CREATE: "event/create",
   },
   ACCOUNTS: {
+    FIND_ONE: "find-one",
     CREATE: "create",
-    FIND_INE: "/:id"
   },
   TRANSACTIONS: {
     MONTHLY_EXPENSES: "monthly-expenses",
